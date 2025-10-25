@@ -2,7 +2,7 @@ import { useState, createContext, useContext, TouchEvent, useLayoutEffect, useRe
 import { PolyrhythmView, TrackView } from 'bananadrum-core';
 import { NoteViewer } from '../note/NoteViewer.js';
 import { Overlay, toggleOverlay } from '../Overlay.js';
-import { ArrangementPlayerContext, NoteWidthContext, NoteLineMinWidth } from '../arrangement/ArrangementViewer.js';
+import { ArrangementPlayerContext, NoteWidthContext } from '../arrangement/ArrangementViewer.js';
 import { TrackPlayer } from 'bananadrum-player';
 import { useSubscription } from '../../hooks/useSubscription.js';
 import { PolyrhythmViewer } from '../PolyrhythmViewer.js';
@@ -63,8 +63,6 @@ function NoteLine({track, callbacks}:{track:TrackView, callbacks:TrackViewerCall
     setPolyrhythms([...track.polyrhythms]);
   });
 
-  const minWidth = useContext(NoteLineMinWidth);
-
   // Polyrhythms need to reposition dynamically
   useLayoutEffect(() => {
     if (!noteLineRef)
@@ -78,7 +76,7 @@ function NoteLine({track, callbacks}:{track:TrackView, callbacks:TrackViewerCall
   }, [polyrhythms.length, useContext(NoteWidthContext)]);
 
   return (
-    <div className="note-line" ref={noteLineRef} style={{minWidth:minWidth}} onTouchStart={callbacks.noteLineTouchStart} onTouchMove={callbacks.noteLineTouchMove} onTouchEnd={callbacks.noteLineTouchEnd}>
+    <div className="note-line" ref={noteLineRef} onTouchStart={callbacks.noteLineTouchStart} onTouchMove={callbacks.noteLineTouchMove} onTouchEnd={callbacks.noteLineTouchEnd}>
       <div className="polyrhythms-wrapper">
         {polyrhythms.map(polyrhythm => <PolyrhythmViewer polyrhythm={polyrhythm} key={polyrhythm.id} />)}
       </div>

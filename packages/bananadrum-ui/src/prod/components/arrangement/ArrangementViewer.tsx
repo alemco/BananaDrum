@@ -1,4 +1,4 @@
-import { RealTime, TimeParamsView } from 'bananadrum-core';
+import { RealTime } from 'bananadrum-core';
 import { ArrangementPlayer } from 'bananadrum-player';
 import { createPublisher } from 'bananadrum-core';
 import { TrackViewer } from '../track/TrackViewer.js';
@@ -13,14 +13,10 @@ import { useSubscription } from '../../hooks/useSubscription.js';
 import { ArrangementControlsTop } from './ArrangementControlsTop.js';
 import { ArrangementControlsBottom } from './ArrangementControlsBottom.js';
 import { Guiderail } from '../guiderail/Guiderail.js';
-import { useStateSubscription } from '../../hooks/useStateSubscription.js';
 
-
-const baseNoteWidth = 55.5; // 54pt flex-basis + 1.5pt for border
 
 export const ArrangementPlayerContext = createContext<ArrangementPlayer>(null);
 export const NoteWidthContext = createContext<number>(null);
-export const NoteLineMinWidth = createContext<number>(null);
 
 
 export function ArrangementViewer({arrangementPlayer}:{arrangementPlayer:ArrangementPlayer}): JSX.Element {
@@ -58,12 +54,9 @@ export function ArrangementViewer({arrangementPlayer}:{arrangementPlayer:Arrange
     return () => resizeObserver.disconnect();
   }, []);
 
-  const noteLineMinWidth = useStateSubscription(arrangement.timeParams, getNoteLineMinWidth);
-
   return (
     <ArrangementPlayerContext.Provider value={arrangementPlayer}>
     <NoteWidthContext.Provider value={noteWidth}>
-    <NoteLineMinWidth.Provider value={noteLineMinWidth}>
       <div className="arrangement-viewer overlay-wrapper">
         <div className="arrangement-viewer-head">
           <ArrangementControlsTop />
@@ -100,7 +93,6 @@ export function ArrangementViewer({arrangementPlayer}:{arrangementPlayer:Arrange
           <Share />
         </Overlay>
       </div>
-    </NoteLineMinWidth.Provider>
     </NoteWidthContext.Provider>
     </ArrangementPlayerContext.Provider>
   );
@@ -231,12 +223,4 @@ function useTrackViewerTouchInterpretation(autoFollowIsOn:boolean, setAutoFollow
       noteLineTouchEnd: undefined
     };
   }
-}
-
-
-// Returns width in pt
-function getNoteLineMinWidth(timeParams:TimeParamsView): number {
-  const widthFromNotes = baseNoteWidth * timeParams.timings.length;
-  const extraWidthBetweenBars = (timeParams.length - 1) * 4;
-  return widthFromNotes + extraWidthBetweenBars;
 }
