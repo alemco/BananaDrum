@@ -21,6 +21,7 @@ function load(instrumentCollection:PackedInstrument[]): void {
       id: packedInstrument.id,
       displayOrder: packedInstrument.displayOrder,
       displayName: packedInstrument.displayName,
+      icon: packedInstrument.icon,
       colourGroup: packedInstrument.colourGroup,
       noteStyles: createNoteStyleBases(packedInstrument)
     });
@@ -51,7 +52,7 @@ function createNoteStyleBases(packedInstrument:PackedInstrument):
 // This should be the only instance of an instrument
 // So if this is called, the instrument must start unloaded
 function createInstrument(packedInstrument:PackedInstrument): Instrument {
-  const {id, packedNoteStyles, displayOrder, displayName, colourGroup} = packedInstrument;
+  const {id, packedNoteStyles, displayOrder, displayName, icon, colourGroup} = packedInstrument;
   const publisher = createPublisher();
 
   let loaded = false;
@@ -59,7 +60,7 @@ function createInstrument(packedInstrument:PackedInstrument): Instrument {
   const unpackPromises:Promise<AudioBuffer>[] = [];
 
   const instrument = {
-    id, noteStyles, displayOrder, displayName, colourGroup,
+    id, noteStyles, displayOrder, displayName, icon, colourGroup,
     get loaded() {return loaded;},
     subscribe:publisher.subscribe, unsubscribe:publisher.unsubscribe
   };

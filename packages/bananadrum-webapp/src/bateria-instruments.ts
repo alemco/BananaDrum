@@ -5,6 +5,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '0',
     displayOrder: 0,
     displayName: 'Agogo',
+    icon: 'images/instrument-icons/agogo.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -29,6 +30,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: 'a',
     displayOrder: 1,
     displayName: '4-Bell Agogo',
+    icon: 'images/instrument-icons/agogogogo.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -69,6 +71,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '1',
     displayOrder: 2,
     displayName: 'Chocalho',
+    icon: 'images/instrument-icons/chocalho.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -93,6 +96,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '2',
     displayOrder: 3,
     displayName: 'Tamborim',
+    icon: 'images/instrument-icons/tamborim.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -117,6 +121,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '3',
     displayOrder: 4,
     displayName: 'Repinique',
+    icon: 'images/instrument-icons/rep with stick.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -181,6 +186,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '4',
     displayOrder: 5,
     displayName: 'Repinique (Whippy Sticks)',
+    icon: 'images/instrument-icons/rep with whippies.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -205,6 +211,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '5',
     displayOrder: 6,
     displayName: 'Caixa',
+    icon: 'images/instrument-icons/caixa.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -245,6 +252,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '6',
     displayOrder: 7,
     displayName: 'Timbau',
+    icon: 'images/instrument-icons/timbau.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -277,6 +285,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '7',
     displayOrder: 8,
     displayName: 'High Surdo',
+    icon: 'images/instrument-icons/high surdo.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -303,6 +312,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '8',
     displayOrder: 9,
     displayName: 'Mid Surdo',
+    icon: 'images/instrument-icons/mid surdo.svg',
     packedNoteStyles: [
       {
         id: '1',
@@ -329,6 +339,7 @@ export const bateriaInstruments:PackedInstrument[] = [
     id: '9',
     displayOrder: 10,
     displayName: 'Low Surdo',
+    icon: 'images/instrument-icons/low surdo.svg',
     packedNoteStyles: [
       {
         id: '1',

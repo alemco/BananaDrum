@@ -24,7 +24,6 @@
   --thick-border: var(--thick-border-width) solid var(--dark-gray);
   --thin-border-width: 1pt;
   --thin-border: var(--thin-border-width) solid var(--dark-gray);
-  --note-height: 54pt;
   --track-meta-width: 84.9pt;
   --a-color: var(--darker-blue);
   --a-color-hover: var(--light-blue);
@@ -35,6 +34,16 @@
   --secondary-red: hsl(2, 63%, 55%);
   --secondary-blue: hsl(205, 80%, 63%);
   --secondary-purple: hsl(232, 100%, 72%);
+}
+
+body {
+  --note-height: 54pt;
+}
+
+@media only screen and (max-width: 430px) {
+  body {
+    --note-height: 36pt;
+  }
 }
 
 .hidden {
@@ -327,7 +336,7 @@ So we're putting them in each track-viewer, where we can position them with no p
 
 .track-meta {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   --padding: 2pt;
   width: var(--track-meta-width);
@@ -344,14 +353,17 @@ So we're putting them in each track-viewer, where we can position them with no p
   z-index: 100; /* Currently only for covering track-controls overlay */
 }
 
+.track-meta > img {
+    height: 28pt;
+    align-self: start;
+}
+
 .track-meta > * {
   padding: var(--padding);
 }
 
 .track-meta .buttons-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: end
+  align-self: end;
 }
 
 .track-meta .buttons-wrapper > * {
