@@ -364,11 +364,13 @@ So we're putting them in each track-viewer, where we can position them with no p
 }
 
 .track-meta .buttons-wrapper {
-  line-height: 21pt;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  gap: 4pt;
+  padding-right: 7pt;
 }
 
 .track-meta .buttons-wrapper > button.push-button.small {
-  margin-left: 4pt;
   width: 17pt;
 }
 
@@ -376,19 +378,21 @@ So we're putting them in each track-viewer, where we can position them with no p
   width: 8pt;
 }
 
+.track-meta .mute {
+  grid-column: 2
+}
+
 @media only screen and (max-width: 430px) {
   .track-meta .buttons-wrapper {
-    line-height: 17pt;
-    padding-top: 0;
-    padding-bottom: 3pt;
+    gap: 2pt;
+    padding-right: var(--padding);
   }
 
+
   .track-meta .buttons-wrapper > button.push-button.small {
-    margin-left: 3pt;
     width: 15pt;
     height: 15pt;
     padding: 0;
-    vertical-align: bottom;
   }
   
   .track-meta .buttons-wrapper > button.push-button.small.solo-mute-button {
