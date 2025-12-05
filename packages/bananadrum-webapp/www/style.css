@@ -338,6 +338,7 @@ So we're putting them in each track-viewer, where we can position them with no p
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   --padding: 2pt;
   width: var(--track-meta-width);
   height: var(--note-height);
@@ -355,7 +356,6 @@ So we're putting them in each track-viewer, where we can position them with no p
 
 .track-meta > img {
     height: 28pt;
-    align-self: start;
 }
 
 .track-meta > * {
@@ -363,7 +363,7 @@ So we're putting them in each track-viewer, where we can position them with no p
 }
 
 .track-meta .buttons-wrapper {
-  align-self: end;
+  line-height: 21pt;
 }
 
 .track-meta .buttons-wrapper > * {
