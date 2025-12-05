@@ -14,10 +14,10 @@ export function TrackMeta({track, toggleControls}
     >
       <img src={iconPath}></img>
       <div className="buttons-wrapper">
-        <SoloMuteButtons />
         <button className="options-button push-button small gray" onClick={toggleControls}>
           <img src="images/icons/wrench.svg" alt="options"/>
         </button>
+        <SoloMuteButtons />
       </div>
     </div>
   );

@@ -24,7 +24,6 @@
   --thick-border: var(--thick-border-width) solid var(--dark-gray);
   --thin-border-width: 1pt;
   --thin-border: var(--thin-border-width) solid var(--dark-gray);
-  --track-meta-width: 84.9pt;
   --a-color: var(--darker-blue);
   --a-color-hover: var(--light-blue);
   --a-color-active: var(--lighter-blue);
@@ -38,11 +37,13 @@
 
 body {
   --note-height: 54pt;
+  --track-meta-width: 84.9pt;
 }
 
 @media only screen and (max-width: 430px) {
   body {
     --note-height: 36pt;
+    --track-meta-width: 72.9pt;
   }
 }
 
@@ -366,13 +367,33 @@ So we're putting them in each track-viewer, where we can position them with no p
   line-height: 21pt;
 }
 
-.track-meta .buttons-wrapper > * {
+.track-meta .buttons-wrapper > button.push-button.small {
   margin-left: 4pt;
   width: 17pt;
 }
 
 .track-meta .options-button img {
   width: 8pt;
+}
+
+@media only screen and (max-width: 430px) {
+  .track-meta .buttons-wrapper {
+    line-height: 17pt;
+    padding-top: 0;
+    padding-bottom: 3pt;
+  }
+
+  .track-meta .buttons-wrapper > button.push-button.small {
+    margin-left: 3pt;
+    width: 15pt;
+    height: 15pt;
+    padding: 0;
+    vertical-align: bottom;
+  }
+  
+  .track-meta .buttons-wrapper > button.push-button.small.solo-mute-button {
+    padding-bottom: 2pt;
+  }
 }
 
 .guiderail-wrapper {
