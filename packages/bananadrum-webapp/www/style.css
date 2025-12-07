@@ -383,6 +383,10 @@ So we're putting them in each track-viewer, where we can position them with no p
 }
 
 @media only screen and (max-width: 430px) {
+  .track-meta > img {
+    height: 28pt;
+  }
+
   .track-meta .buttons-wrapper {
     gap: 2pt;
     padding-right: var(--padding);
