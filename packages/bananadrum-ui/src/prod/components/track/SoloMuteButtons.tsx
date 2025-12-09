@@ -27,7 +27,7 @@ export function SoloMuteButtons(): JSX.Element {
       <button className={`${smButtonClasses} ${soloButtonColour}`} onClick={solo}>
         S
       </button>
-      <button className={`${smButtonClasses} ${muteButtonColour}`} onClick={mute}>
+      <button className={`${smButtonClasses} ${muteButtonColour} mute`} onClick={mute}>
         M
       </button>
     </>

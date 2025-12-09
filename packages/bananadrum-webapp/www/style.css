@@ -24,8 +24,6 @@
   --thick-border: var(--thick-border-width) solid var(--dark-gray);
   --thin-border-width: 1pt;
   --thin-border: var(--thin-border-width) solid var(--dark-gray);
-  --note-height: 54pt;
-  --track-meta-width: 84.9pt;
   --a-color: var(--darker-blue);
   --a-color-hover: var(--light-blue);
   --a-color-active: var(--lighter-blue);
@@ -35,6 +33,18 @@
   --secondary-red: hsl(2, 63%, 55%);
   --secondary-blue: hsl(205, 80%, 63%);
   --secondary-purple: hsl(232, 100%, 72%);
+}
+
+body {
+  --note-height: 54pt;
+  --track-meta-width: 97.9pt;
+}
+
+@media only screen and ((max-width: 430px) or (max-height: 500px)) {
+  body {
+    --note-height: 36pt;
+    --track-meta-width: 72.9pt;
+  }
 }
 
 .hidden {
@@ -327,8 +337,9 @@ So we're putting them in each track-viewer, where we can position them with no p
 
 .track-meta {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   --padding: 2pt;
   width: var(--track-meta-width);
   height: var(--note-height);
@@ -344,23 +355,53 @@ So we're putting them in each track-viewer, where we can position them with no p
   z-index: 100; /* Currently only for covering track-controls overlay */
 }
 
+.track-meta > img {
+    height: 43pt;
+}
+
 .track-meta > * {
   padding: var(--padding);
 }
 
 .track-meta .buttons-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: end
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  gap: 4pt;
+  padding-right: 7pt;
 }
 
-.track-meta .buttons-wrapper > * {
-  margin-left: 4pt;
+.track-meta .buttons-wrapper > button.push-button.small {
   width: 17pt;
 }
 
 .track-meta .options-button img {
   width: 8pt;
+}
+
+.track-meta .mute {
+  grid-column: 2
+}
+
+@media only screen and ((max-width: 430px) or (max-height: 500px)) {
+  .track-meta > img {
+    height: 28pt;
+  }
+
+  .track-meta .buttons-wrapper {
+    gap: 2pt;
+    padding-right: var(--padding);
+  }
+
+
+  .track-meta .buttons-wrapper > button.push-button.small {
+    width: 15pt;
+    height: 15pt;
+    padding: 0;
+  }
+  
+  .track-meta .buttons-wrapper > button.push-button.small.solo-mute-button {
+    padding-bottom: 2pt;
+  }
 }
 
 .guiderail-wrapper {

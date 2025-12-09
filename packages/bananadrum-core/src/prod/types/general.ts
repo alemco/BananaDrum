@@ -27,6 +27,7 @@ export interface InstrumentMeta {
   id: string // single digit or char, 0 is allowed
   displayOrder: number
   displayName: string
+  icon: string
   colourGroup: string // blue, purple, green, orange, or yellow
   noteStyles?: {[id: string]: NoteStyleBase}
 }
