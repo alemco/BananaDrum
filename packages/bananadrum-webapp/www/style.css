@@ -40,7 +40,7 @@ body {
   --track-meta-width: 97.9pt;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and ((max-width: 430px) or (max-height: 500px)) {
   body {
     --note-height: 36pt;
     --track-meta-width: 72.9pt;
@@ -382,7 +382,7 @@ So we're putting them in each track-viewer, where we can position them with no p
   grid-column: 2
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and ((max-width: 430px) or (max-height: 500px)) {
   .track-meta > img {
     height: 28pt;
   }
