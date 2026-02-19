@@ -12,13 +12,13 @@ export function TrackControls(
     <div className="track-controls">
       <button className="push-button gray"
         onClick={() => edit({arrangement, removeTrack:track})}
-      >Remove track</button>
+      >Remove</button>
       <button className="push-button gray"
         onClick={() => {
           edit({track, command:'clear'})
           toggleOverlay(overlayName, 'hide');
         }}
-      >Clear track</button>
+      >Clear</button>
       <button className="push-button gray"
         onClick={() => toggleOverlay(overlayName, 'hide')}
       >Cancel</button>
