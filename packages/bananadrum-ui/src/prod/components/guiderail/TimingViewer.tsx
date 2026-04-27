@@ -20,12 +20,12 @@ function AdjacentCopyBarControl({ copyFrom, direction }: AdjacentCopyPasteReques
     
   return (<div>
     {direction == PasteDirection.Left &&
-      <button className='push-button medium gray' onClick={() => {copyPaste(copyFrom, copyFrom.start.bar - 1)}}>
+      <button className='push-button medium gray' onClick={() => { copyPaste(copyFrom, { start: { bar: copyFrom.start.bar - 1, step: 1}, end: { bar: copyFrom.start.bar - 1, step: copyFrom.end.step } })}}>
         <img src="images/icons/undo_white.svg" style={{ height: '0.78em' }} />
       </button>
     }
     {direction == PasteDirection.Right &&
-      <button className='push-button medium gray' onClick={() => {copyPaste(copyFrom, copyFrom.end.bar + 1)}}>
+      <button className='push-button medium gray' onClick={() => { copyPaste(copyFrom, { start: { bar: copyFrom.start.bar + 1, step: 1 }, end: { bar: copyFrom.start.bar + 1, step: copyFrom.end.step } })}}>
         <img src="images/icons/redo_white.svg" style={{ height: '0.78em' }} />
       </button>
     }
@@ -33,9 +33,7 @@ function AdjacentCopyBarControl({ copyFrom, direction }: AdjacentCopyPasteReques
   )
   
 
-  function copyPaste(copyFrom: CopyRequest, pasteStartBar: number): void{
-    let pasteStartTiming: Timing = { bar: pasteStartBar, step: 1 };
-    let pasteTo: PasteRequest = { start: pasteStartTiming };
+  function copyPaste(copyFrom: CopyRequest, pasteTo: PasteRequest): void{
 
     bananaDrum.edit({
       arrangement: bananaDrum.arrangement,
