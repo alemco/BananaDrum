@@ -32,15 +32,9 @@ export function createTrack(arrangement:Arrangement, instrument:Instrument, id:n
   // ==================================================================
 
   function copyPaste(copyFrom: CopyRequest, pasteTo: PasteRequest): void {
-        const clipboard = new TrackClipboard(track);
+    const clipboard = new TrackClipboard(track);
     clipboard.copy(copyFrom);
-    let numNotesCovered = clipboard.length;
-
-    while (numNotesCovered < track.notes.length) {
-      const pasteStart = track.notes[numNotesCovered].timing;
-      clipboard.paste(pasteTo);
-      numNotesCovered += clipboard.length;
-    }    
+    clipboard.paste(pasteTo);
   }
 
   function getNoteAt(timing:Timing): Note {
