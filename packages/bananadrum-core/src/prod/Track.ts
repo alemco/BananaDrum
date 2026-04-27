@@ -51,7 +51,7 @@ export function createTrack(arrangement:Arrangement, instrument:Instrument, id:n
   }
 
 
-  function addPolyrhythm(start:Note, end:Note, length:number, id:number = getNewId(), index?:number, noteStyles?: (NoteStyle|null)[]) {
+  function addPolyrhythm(start: Note, end: Note, length: number, id: number = getNewId(), index?: number, noteStyles?: (NoteStyle | null)[]): Polyrhythm | undefined {
     if (length < 1)
       return;
 
@@ -69,6 +69,7 @@ export function createTrack(arrangement:Arrangement, instrument:Instrument, id:n
       polyrhythms.push(polyrhythm);
 
     publisher.publish();
+    return polyrhythm;
   }
 
 
